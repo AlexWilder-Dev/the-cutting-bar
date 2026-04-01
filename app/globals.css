@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-black: #0A0A0A;
+  --color-black-soft: #1A1A1A;
+  --color-charcoal: #2D2D2D;
+  --color-cream: #F4F1DE;
+  --color-cream-dark: #E8E4CF;
+  --color-rose: #C1666B;
+  --color-rose-light: #D4878B;
+  --color-rose-dark: #A3545A;
+  --color-sage: #81B29A;
+  --color-white: #F5F5F0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (hover: hover) {
+  body {
+    cursor: none;
+  }
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--color-rose);
+  color: var(--color-white);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+}
+
+/* Focus visible */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid #C1666B;
+  outline-offset: 4px;
+}
+
+/* Text selection */
+::selection {
+  background-color: var(--color-rose);
+  color: var(--color-white);
+}
+
+::-moz-selection {
+  background-color: var(--color-rose);
+  color: var(--color-white);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-charcoal);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-rose-dark);
+}
+
+/* Scrollbar for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-charcoal) var(--color-black);
+}
+
+/* Underline hover animation */
+.underline-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.underline-hover:hover::after {
+  width: 100%;
+}
+
+/* Underline-from-center hover animation */
+.underline-hover-center {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-hover-center::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.underline-hover-center:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Nav link hover animation */
+.nav-link-hover {
+  position: relative;
+}
+
+.nav-link-hover .hover-line {
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-rose);
+  transition: width 0.3s ease;
+}
+
+.nav-link-hover:hover .hover-line {
+  width: 100%;
+}
+
+/* Smooth image transitions */
+img {
+  transition: opacity 0.3s ease;
+}
+
+/* Remove tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
